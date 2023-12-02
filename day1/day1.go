@@ -40,7 +40,7 @@ func part1() {
 }
 
 func readCalibrationValue(reader *bufio.Reader) (calibrationValue int, err error) {
-	fmt.Println("New line")
+	// fmt.Println("New line")
 
 	firstDigit := -1
 	lastDigit := -1
@@ -54,8 +54,6 @@ func readCalibrationValue(reader *bufio.Reader) (calibrationValue int, err error
 			break
 		}
 
-		fmt.Println(string(r))
-
 		if isDigit(r) {
 			i := toInt(r)
 			if firstDigit == -1 {
@@ -65,14 +63,14 @@ func readCalibrationValue(reader *bufio.Reader) (calibrationValue int, err error
 		}
 	}
 
-	fmt.Printf("First digit : %v\n", firstDigit)
-	fmt.Printf("Last digit : %v\n", lastDigit)
+	// fmt.Printf("First digit : %v\n", firstDigit)
+	// fmt.Printf("Last digit : %v\n", lastDigit)
 
 	s := fmt.Sprintf("%v%v", firstDigit, lastDigit)
 	i, err := strconv.Atoi(s)
 	check(err)
 
-	fmt.Printf("Calibration value : %v\n", i)
+	// fmt.Printf("Calibration value : %v\n", i)
 
 	return i, readError
 }
