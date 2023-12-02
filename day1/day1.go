@@ -1,10 +1,10 @@
 package main
 
 import (
+	"advent-of-code-2023/utils"
 	"bufio"
 	"fmt"
 	"io"
-	"log"
 	"os"
 	"strconv"
 	"strings"
@@ -14,12 +14,6 @@ var digitWords [9]string = [9]string{"one", "two", "three", "four", "five", "six
 
 func main() {
 	part2()
-}
-
-func check(err error) {
-	if err != nil {
-		log.Fatal(err)
-	}
 }
 
 func part1() {
@@ -44,7 +38,7 @@ func part1() {
 
 func part2() {
 	file, err := os.Open("day1-input.txt")
-	check(err)
+	utils.Check(err)
 	defer file.Close()
 
 	sum := 0
