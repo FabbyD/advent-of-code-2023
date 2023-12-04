@@ -18,7 +18,7 @@ func main() {
 
 func part1() {
 	file, err := os.Open("day1-input.txt")
-	check(err)
+	utils.Check(err)
 	defer file.Close()
 
 	sum := 0
@@ -75,8 +75,8 @@ func readCalibrationValue(reader *bufio.Reader) (calibrationValue int, err error
 			break
 		}
 
-		if isDigit(r) {
-			i := toInt(r)
+		if utils.IsDigit(r) {
+			i := utils.ToInt(r)
 			if firstDigit == -1 {
 				firstDigit = i
 			}
@@ -89,7 +89,7 @@ func readCalibrationValue(reader *bufio.Reader) (calibrationValue int, err error
 
 	s := fmt.Sprintf("%v%v", firstDigit, lastDigit)
 	i, err := strconv.Atoi(s)
-	check(err)
+	utils.Check(err)
 
 	// fmt.Printf("Calibration value : %v\n", i)
 
@@ -142,8 +142,8 @@ func readCalibrationValuePart2(reader *bufio.Reader) (calibrationValue int, err 
 		currentWord = currentWord + string(r)
 		fmt.Printf("%v - Word : %v\n", string(r), currentWord)
 
-		if isDigit(r) {
-			i := toInt(r)
+		if utils.IsDigit(r) {
+			i := utils.ToInt(r)
 			updateDigits(i)
 			currentWord = ""
 			continue
@@ -160,12 +160,4 @@ func readCalibrationValuePart2(reader *bufio.Reader) (calibrationValue int, err 
 	i := firstDigit*10 + lastDigit
 
 	return i, readError
-}
-
-func isDigit(r rune) bool {
-	return r >= '0' && r <= '9'
-}
-
-func toInt(r rune) int {
-	return int(r - '0')
 }
