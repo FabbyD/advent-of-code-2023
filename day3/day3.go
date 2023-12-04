@@ -106,7 +106,7 @@ func isPart(lines [][]rune, part Part) bool {
 	startRow := max(0, part.row-1)
 	endRow := min(part.row+1, len(lines)-1)
 	startColumn := max(0, part.column-1)
-	endColumn := min(part.column+part.size+1, len(lines[0])-1)
+	endColumn := min(part.column+part.size, len(lines[0])-1)
 
 	for i := startRow; i <= endRow; i++ {
 		for j := startColumn; j <= endColumn; j++ {

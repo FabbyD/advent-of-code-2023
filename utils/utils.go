@@ -18,7 +18,7 @@ func OpenInput() *os.File {
 	return file
 }
 
-func OpenExampleInput(day int) *os.File {
+func OpenExampleInput() *os.File {
 	file, err := os.Open("example.txt")
 	Check(err)
 
